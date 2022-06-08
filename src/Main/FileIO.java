@@ -2,7 +2,6 @@ package Main;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class FileIO {
     private static File file = new File("restaurant_rating.txt");
@@ -60,7 +59,7 @@ public class FileIO {
                     temp[1],
                     temp[2],
                     Integer.parseInt(temp[3]),
-                    Long.parseLong(temp[4])
+                    Integer.parseInt(temp[4])
             );
             txt.add(restaurant);
         }
@@ -97,5 +96,19 @@ public class FileIO {
             }
         }
         return restaurant;
+    }
+
+    public static Restaurant random_Restaurant() throws IOException {
+        ArrayList<Restaurant> data = read_Restaurant();
+        if(data != null){
+            int i = (int) (Math.random() * data.size());
+            return data.get(i);
+        }
+        else{
+            System.out.println("No data");
+            return null;
+        }
+
+
     }
 }
