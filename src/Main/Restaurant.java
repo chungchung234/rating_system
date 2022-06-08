@@ -74,6 +74,7 @@ public class Restaurant implements Comparable<Restaurant>{
         }
         for (int i = 0; i < temp[1].length(); i++) {
             char c = temp[1].charAt(i);
+            if(c=='-')continue;
             if( c<'0' ||c>'9'){
                 System.out.println("PhoneNumber insert only numbers");
                 return false;
@@ -115,7 +116,7 @@ public class Restaurant implements Comparable<Restaurant>{
     public static void delete() throws IOException {
         System.out.println("Insert Restaurant Name");
         String name = scanner.next();
-        if(check_Format(new String[]{name,"0","signature_Menu","0","0"})){
+        if(!check_Format(new String[]{name,"0","signature_Menu","0","0"})){
             delete();
         }
 
@@ -130,7 +131,7 @@ public class Restaurant implements Comparable<Restaurant>{
     public static void search() throws IOException {
         System.out.println("Insert Restaurant Name");
         String name = scanner.next();
-        if(check_Format(new String[]{name,"0","signature_Menu","0","0"})){
+        if(!check_Format(new String[]{name,"0","signature_Menu","0","0"})){
             search();
         }
         Restaurant restaurant = FileIO.search_Restaurant(name);
@@ -148,7 +149,7 @@ public class Restaurant implements Comparable<Restaurant>{
         System.out.println("restaurant_name/phone/signature_Menu/menu_Price/rating");
         String restaurant_info = scanner.nextLine();
         String temp[] = restaurant_info.split("/");
-        if(check_Format(temp)){
+        if(!check_Format(temp)){
             System.out.println("Please attention restaurant Format");
             modify();
         }
@@ -185,9 +186,9 @@ public class Restaurant implements Comparable<Restaurant>{
 
     @Override
     public int compareTo(Restaurant restaurant) {
-        if (restaurant.getRating() < rating) {
+        if (restaurant.getRating() > rating) {
             return 1;
-        } else if (restaurant.getRating() > rating) {
+        } else if (restaurant.getRating() < rating) {
             return -1;
         }
         return 0;

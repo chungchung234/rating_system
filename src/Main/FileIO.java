@@ -50,12 +50,11 @@ public class FileIO {
             file.createNewFile();
         }
         ArrayList<Restaurant> txt = new ArrayList<Restaurant>();
-        String buffer = null;
+        String str = "";
 
         BufferedReader br = new BufferedReader(new FileReader(file));
-        while ((buffer=br.readLine())!=null){
-            String temp[] = br.readLine().split("/");
-            System.out.println(Arrays.toString(temp));
+        while ((str=br.readLine())!=null){
+            String temp[] = str.split("/");
             Restaurant restaurant = new Restaurant(
                     temp[0],
                     temp[1],
