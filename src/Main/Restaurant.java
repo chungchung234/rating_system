@@ -12,6 +12,14 @@ public class Restaurant implements Comparable<Restaurant>{
 
     static Scanner scanner = new Scanner(System.in);
 
+    /**
+     *
+     * @param name
+     * @param phone
+     * @param signature_Menu
+     * @param menu_Price
+     * @param rating
+     */
     Restaurant(String name, String phone, String signature_Menu, int menu_Price, int rating){
         this.name = name;
         this.phone = phone;
