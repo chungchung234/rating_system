@@ -14,6 +14,7 @@ public class Main {
                     "\n3.Management_data\t"+
                     "\n4.Exit");
             System.out.println("____________________________________________________________");
+            System.out.print("Pick : ");
             int n = scanner.nextInt();
             switch (n){
                 case 1:
@@ -32,6 +33,7 @@ public class Main {
                                 "\n4.Modify\t\t\tModify Restaurant Info"+
                                 "\n5.Go to Menu");
                         System.out.println("____________________________________________________________");
+                        System.out.print("Pick : ");
                         int m = scanner.nextInt();
                         switch (m) {
                             case 1:
