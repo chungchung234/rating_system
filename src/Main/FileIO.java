@@ -2,6 +2,7 @@ package Main;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class FileIO {
     private static File file = new File("restaurant_rating.txt");
@@ -39,8 +40,7 @@ public class FileIO {
                     data.get(i).getPhone()+"/"+
                     data.get(i).getSignature_Menu()+"/"+
                     data.get(i).getMenu_Price()+"/"+
-                    data.get(i).getRating());
-            bw.newLine();
+                    data.get(i).getRating()+"\r\n");
         }
         bw.close();
     }
@@ -50,11 +50,12 @@ public class FileIO {
             file.createNewFile();
         }
         ArrayList<Restaurant> txt = new ArrayList<Restaurant>();
-        int buffer = 0;
+        String buffer = null;
 
         BufferedReader br = new BufferedReader(new FileReader(file));
-        while ((buffer=br.read())!=-1){
+        while ((buffer=br.readLine())!=null){
             String temp[] = br.readLine().split("/");
+            System.out.println(Arrays.toString(temp));
             Restaurant restaurant = new Restaurant(
                     temp[0],
                     temp[1],
