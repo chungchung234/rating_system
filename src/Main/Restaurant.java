@@ -21,7 +21,6 @@ public class Restaurant implements Comparable<Restaurant>{
     }
 
     public static void pick_Me_One() throws IOException {
-        System.out.println("Pick random Restaurant Over rating 3*");
         Restaurant restaurant = FileIO.random_Restaurant();
         if(restaurant != null){
             System.out.println(
@@ -30,6 +29,8 @@ public class Restaurant implements Comparable<Restaurant>{
         }else {
             System.out.println("Can't find Restaurant Name");
         }
+        System.out.println("Enter 'X' Go Menu");
+        String _temp = scanner.next();
     }
 
     public int getMenu_Price() {
@@ -56,7 +57,7 @@ public class Restaurant implements Comparable<Restaurant>{
         System.out.println("restaurant_name/phone/signature_Menu/menu_Price/rating");
         String restaurant_info = scanner.nextLine();
         String temp[] = restaurant_info.split("/");
-        if(check_Format(temp)){
+        if(!check_Format(temp)){
             System.out.println("Please attention restaurant Format");
             add();
         }else {
@@ -70,7 +71,7 @@ public class Restaurant implements Comparable<Restaurant>{
             //id 구현해서 하나 추가할때마다 카운트 증가하게 하고싶은데 텍스트파일을 매번 읽을 수 도 없구 어카지;;;
             FileIO.insert_Restaurant(restaurant);
         }
-        System.out.println("Press Enter");
+        System.out.println("Enter 'X' Go Menu");
         String _temp = scanner.next();
     }
 
@@ -136,7 +137,7 @@ public class Restaurant implements Comparable<Restaurant>{
         }else {
             System.out.println("Can't find Restaurant Name");
         }
-        System.out.println("Press Enter");
+        System.out.println("Enter 'X' Go Menu");
         String _temp = scanner.next();
     }
 
@@ -154,7 +155,7 @@ public class Restaurant implements Comparable<Restaurant>{
         }else {
             System.out.println("Can't find Restaurant Name");
         }
-        System.out.println("Press Enter");
+        System.out.println("Enter 'X' Go Menu");
         String _temp = scanner.next();
     }
 
@@ -181,7 +182,7 @@ public class Restaurant implements Comparable<Restaurant>{
         else{
             System.out.println("Can't find Restaurant Name");
         }
-        System.out.println("Press Enter");
+        System.out.println("Enter 'X' Go Menu");
         String _temp = scanner.next();
     }
 
@@ -193,7 +194,7 @@ public class Restaurant implements Comparable<Restaurant>{
         for (int i = 0; i < data.size(); i++) {
             System.out.println(data.get(i).getString());
         }
-        System.out.println("Press Enter");
+        System.out.println("Enter 'X' Go Menu");
         String _temp = scanner.next();
     }
 
